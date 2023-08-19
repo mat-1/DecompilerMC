@@ -3,7 +3,7 @@
 ---
 **What is this for?**
 
-This tool will help you convert mappings from mojang from their proguard format to the tsrg format that then can be used directly with specialsource which will then remap the client jar. Once that done it can be decompiled either with cfr (code only) or fernflower (assets and code).
+This tool will help you convert mappings from mojang from their proguard format to the tsrg format that then can be used directly with specialsource which will then remap the client jar. Once that done it can be decompiled either with cfr (code only) or vineflower (assets and code).
 
 Of course we provide all that toolchain directly so your output will be readable (and soon executable) code as you could get with MCP (ModCoderPack)
 
@@ -16,7 +16,7 @@ We support Windows, MacOS and linux
 
 You need a java runtime inside your path (Java 8 should be good)
 
-CFR decompilation is approximately 60s and fernflower takes roughly 200s, please give it time
+CFR decompilation is approximately 60s and vineflower takes roughly 200s, please give it time
 
 You can run it directly with python 3.7+ with `python3 main.py`
 
@@ -67,7 +67,7 @@ optional arguments:
   --force, -f           Force resolving conflict by replacing old files.
   --forceno, -fn        Force resolving conflict by creating new directories.
   --decompiler DECOMPILER, -d DECOMPILER
-                        Choose between fernflower and cfr.
+                        Choose between vineflower and cfr.
   --nauto, -na          Choose between auto and manual mode.
   --download_mapping DOWNLOAD_MAPPING, -dm DOWNLOAD_MAPPING
                         Download the mappings (only if auto off)
