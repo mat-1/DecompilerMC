@@ -355,8 +355,8 @@ def decompile_fern_flower(decompiled_version, version, side, quiet, force):
         os.remove(f'./src/{version}-{side}-temp.jar')
         if not quiet:
             print("Decompressing remapped jar to directory")
-        with zipfile.ZipFile(f'./src/{decompiled_version}/{side}/{version}-{side}-temp.jar') as z:
-            z.extractall(path=f'./src/{decompiled_version}/{side}')
+        # with zipfile.ZipFile(f'./src/{decompiled_version}/{side}/{version}-{side}-temp.jar') as z:
+        #     z.extractall(path=f'./src/{decompiled_version}/{side}')
         t = time.time() - t
         if not quiet:
             print(f'Done in %.1fs (file was decompressed in {decompiled_version}/{side})' % t)
