@@ -331,17 +331,17 @@ def remap(version, side, quiet):
 
 def decompile_fern_flower(decompiled_version, version, side, quiet, force):
     if not quiet:
-        print('=== Decompiling using FernFlower (silent) ===')
+        print('=== Decompiling using Vineflower (silent) ===')
     t = time.time()
     path = Path(f'./src/{version}-{side}-temp.jar')
-    fernflower = Path('./lib/fernflower.jar')
-    if path.exists() and fernflower.exists():
+    vineflower = Path('./lib/vineflower.jar')
+    if path.exists() and vineflower.exists():
         path = path.resolve()
-        fernflower = fernflower.resolve()
+        vineflower = vineflower.resolve()
         subprocess.run(['java',
                         '-Xmx4G',
                         '-Xms1G',
-                        '-jar', fernflower.__str__(),
+                        '-jar', vineflower.__str__(),
                         '-hes=0',  # hide empty super invocation deactivated (might clutter but allow following)
                         '-hdc=0',  # hide empty default constructor deactivated (allow to track)
                         '-dgs=1',  # decompile generic signatures activated (make sure we can follow types)
@@ -370,7 +370,7 @@ def decompile_fern_flower(decompiled_version, version, side, quiet, force):
 
     else:
         if not quiet:
-            print(f'ERROR: Missing files: ./lib/fernflower.jar or ./src/{version}-{side}-temp.jar')
+            print(f'ERROR: Missing files: ./lib/vineflower.jar or ./src/{version}-{side}-temp.jar')
             input("Aborting, press anything to exit")
         sys.exit(-1)
 
@@ -593,7 +593,7 @@ def main():
     parser.add_argument('--forceno', '-fn', dest='forceno', action='store_false', default=True,
                         help=f"Force resolving conflict by creating new directories.")
     parser.add_argument('--decompiler', '-d', type=str, dest='decompiler', default="cfr",
-                        help=f"Choose between fernflower and cfr.")
+                        help=f"Choose between vineflower and cfr.")
     parser.add_argument('--nauto', '-na', dest='nauto', action='store_true', default=False,
                         help=f"Choose between auto and manual mode.")
     parser.add_argument('--download_mapping', '-dm', nargs='?', const=True, type=str2bool, dest='download_mapping',
@@ -630,8 +630,8 @@ def main():
     if use_flags:
         decompiler = args.decompiler
     else:
-        decompiler = input("Please input you decompiler choice: fernflower or cfr (CFR/f): ")
-    decompiler = decompiler.lower() if decompiler.lower() in ["fernflower", "cfr", "f"] else "cfr"
+        decompiler = input("Please input you decompiler choice: vineflower or cfr (CFR/f): ")
+    decompiler = decompiler.lower() if decompiler.lower() in ["vineflower", "cfr", "f"] else "cfr"
     if use_flags:
         version = args.mcversion
         if version is None:
