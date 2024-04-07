@@ -305,7 +305,8 @@ def remap(version, side, quiet):
                 sys.exit(-1)
             path = path_temp
     mapp = Path(f'mappings/{version}/{side}.tsrg')
-    specialsource = Path('./lib/SpecialSource-1.9.1.jar')
+    # download for specialsource is at https://repo1.maven.org/maven2/net/md-5/SpecialSource/
+    specialsource = Path('./lib/SpecialSource-1.11.4-shaded.jar')
     if path.exists() and mapp.exists() and specialsource.exists() and path.is_file() and mapp.is_file() and specialsource.is_file():
         path = path.resolve()
         mapp = mapp.resolve()
@@ -324,7 +325,7 @@ def remap(version, side, quiet):
     else:
         if not quiet:
             print(
-                f'ERROR: Missing files: ./lib/SpecialSource-1.8.6.jar or mappings/{version}/{side}.tsrg or versions/{version}/{side}.jar')
+                f'ERROR: Missing files: ./lib/SpecialSource-1.11.4-shaded.jar or mappings/{version}/{side}.tsrg or versions/{version}/{side}.jar')
             input("Aborting, press anything to exit")
         sys.exit(-1)
 
